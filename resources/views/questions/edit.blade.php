@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <h2>Ask Questions</h2>
+                            <h2>Edit Questions</h2>
                         </div>
                         <div class="col-8">
                             <a href="" class="btn btn-outline-secondary" style="float: right;">Back to all
@@ -18,8 +18,9 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('questions.store') }}" method="post">
-                        @include("questions._form", ['buttonText' => 'Ask Question'])
+                    <form action="{{ route('questions.update', $question->id) }}" method="post">
+                        {{ method_field('PUT') }}
+                        @include("questions._form", ['buttonText' => 'Update Question'])
                     </form>
                 </div>
             </div>

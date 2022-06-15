@@ -37,11 +37,14 @@
                             </div>
                         </div>
                         <div class="col-8" style="margin-left: 20px;">
-                            <h3 class="mt-0">
-                                <a href="{{ $question->url }}">
-                                    {{ $question->title }}
-                                </a>
-                            </h3>
+                            <div class="d-flex align-items-center">
+                                <h3 class="mt-0">
+                                    <a href="{{ $question->url }}">
+                                        {{ $question->title }}
+                                    </a>
+
+                                </h3>
+                            </div>
                             <p class="lead">
                                 Asked by
                                 <a href="{{ $question->user->url }}">
@@ -52,6 +55,11 @@
                                 </small>
                             </p>
                             {{ str_limit($question->body, 250)}}
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info"
+                                style="float:right">Edit</a>
+
                         </div>
                     </div>
                     <hr>
