@@ -12,6 +12,8 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $namespace = 'App\\Http\\Controllers';
+    
     public function index()
     {
         $questions = Question::with('user')->latest()->paginate(10);
@@ -26,7 +28,8 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        $question = new Question();
+        return view('questions.create', compact('question'));
     }
 
     /**
