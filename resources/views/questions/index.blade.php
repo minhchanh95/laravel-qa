@@ -60,16 +60,16 @@
                             <div class="row">
                                 <div class="col">
 
-                                    @if(Auth::user()->can('update-question', $question))
+                                    @can('update-question', $question)
 
                                     <a href="{{ route('questions.edit', $question->id) }}"
                                         class="btn btn-sm btn-outline-info" style="float:right">Edit</a>
 
-                                    @endif
+                                    @endcan
 
                                 </div>
                                 <div class="col">
-                                    @if(Auth::user()->can('delete-question', $question))
+                                    @can('delete-question', $question)
                                     <form class="form-delete" method="post"
                                         action="{{ route('questions.destroy', $question->id) }}">
                                         @method('DELETE')
@@ -77,7 +77,7 @@
                                         <button type="submit" class="btn btn-sm btn-outline-danger"
                                             onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
-                                    @endif
+                                    @endcan
                                 </div>
                             </div>
                         </div>
